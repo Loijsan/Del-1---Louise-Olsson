@@ -36,18 +36,23 @@ namespace Del_1___Louise_Olsson.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            public string Nickname { get; set; }
         }
+        // OOO Here the nickname for the user can be changed
 
         private async Task LoadAsync(AppUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            var nickName = user.NickName;
 
             Username = userName;
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                Nickname = nickName
             };
         }
 
@@ -75,6 +80,12 @@ namespace Del_1___Louise_Olsson.Areas.Identity.Pages.Account.Manage
             {
                 await LoadAsync(user);
                 return Page();
+            }
+
+            if (Input.Nickname != user.NickName)
+            {
+                user.NickName = Input.Nickname;
+                await _userManager.UpdateAsync(user);
             }
 
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);

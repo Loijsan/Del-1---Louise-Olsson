@@ -1,6 +1,5 @@
 using Del_1___Louise_Olsson.Data;
 using Del_1___Louise_Olsson.Models;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;

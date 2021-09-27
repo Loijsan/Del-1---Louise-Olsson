@@ -42,7 +42,7 @@ namespace Del_1___Louise_Olsson
                 facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
                 facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
             })
-                // OOO Adds cookies
+                // OOO Adds Cookie Configuration
                 .AddCookie(options =>
             {
                 options.LoginPath = "/Account/Unauthorized/";

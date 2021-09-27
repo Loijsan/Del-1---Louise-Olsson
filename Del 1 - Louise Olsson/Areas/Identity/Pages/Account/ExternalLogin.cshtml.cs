@@ -122,7 +122,6 @@ namespace Del_1___Louise_Olsson.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                /// OOO Lägga till roll här?
                 var user = new AppUser { UserName = Input.Email, Email = Input.Email };
 
                 var result = await _userManager.CreateAsync(user);
